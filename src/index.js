@@ -107,12 +107,16 @@ const minify = (data, dictionary) => {
     for (let i = 0; i < data.length; i++) {
       const curr = data[i]
 
+      console.log(curr)
+
       if (isObject(curr) || isArray(curr)) {
         newData[i] = minify(curr, dictionary)
       } else {
         newData[i] = curr
       }
     }
+
+    return newData
   }
 }
 

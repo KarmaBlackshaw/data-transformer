@@ -18,23 +18,11 @@ npm i @cubic-wing/data-transformer
 const transformer = require("@cubic-wing/data-transformer")
 
 const data = {
-  very_long_word: "very_long_word",
-  longer_word: "very_long_word",
-  object_foo: {
-    foo: "foo",
-    bar: "bar",
-  },
-  array_foo: ["foo", "bar"],
-  object_array_foo: [
-    {
-      foo: "foo",
-      bar: "bar",
-    },
-    {
-      foo: "foo",
-      bar: "bar",
-    }
-  ],
+  very_long_word: 'very_long_word',
+  longer_word: 'very_long_word',
+  object_foo: { foo: 'foo', bar: 'bar' },
+  array_foo: [ 'foo', 'bar' ],
+  object_array_foo: [ { foo: 'foo', bar: 'bar' }, { foo: 'foo', bar: 'bar' } ]
 }
 
 const dictionary = transformer.generateDictionary(data);

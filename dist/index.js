@@ -6,9 +6,27 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-const isArray = hit => Array.isArray(hit);
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
-const isObject = hit => !isArray(hit) && typeof hit === 'object';
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+var isArray = function isArray(hit) {
+  return Array.isArray(hit);
+};
+
+var isObject = function isObject(hit) {
+  return !isArray(hit) && _typeof(hit) === 'object';
+};
 /**
  * Get all nested keys of an object
  *
@@ -16,27 +34,27 @@ const isObject = hit => !isArray(hit) && typeof hit === 'object';
  */
 
 
-const extractKeys = data => {
-  const set = [];
+var extractKeys = function extractKeys(data) {
+  var keys = [];
 
   if (isObject(data)) {
-    for (const key in data) {
-      const curr = data[key];
+    for (var key in data) {
+      var curr = data[key];
 
       if (isObject(curr)) {
-        set.push(...extractKeys(curr));
+        keys.push.apply(keys, _toConsumableArray(extractKeys(curr)));
       }
 
-      set.push(key);
+      keys.push(key);
     }
   }
 
   if (isArray(data)) {
-    for (let i = 0; i < data.length; i++) {
-      const curr = data[i];
+    for (var i = 0; i < data.length; i++) {
+      var _curr = data[i];
 
-      if (isObject(curr)) {
-        set.push(...extractKeys(curr));
+      if (isObject(_curr)) {
+        keys.push.apply(keys, _toConsumableArray(extractKeys(_curr)));
       }
     }
   }
@@ -51,8 +69,10 @@ const extractKeys = data => {
  */
 
 
-const minifyWord = (word, depth) => {
-  return /_/.test(word) ? word.split('_').map(x => x.substring(0, depth)).join('') : word.substring(0, depth);
+var minifyWord = function minifyWord(word, depth) {
+  return /_/.test(word) ? word.split('_').map(function (x) {
+    return x.substring(0, depth);
+  }).join('') : word.substring(0, depth);
 };
 /**
  * Convert an array of strings to its minified version
@@ -61,16 +81,16 @@ const minifyWord = (word, depth) => {
  */
 
 
-const generateDictionary = data => {
-  const keys = extractKeys(data);
-  const hashContainer = {};
-  const dictionary = {};
+var generateDictionary = function generateDictionary(data) {
+  var keys = extractKeys(data);
+  var hashContainer = {};
+  var dictionary = {};
 
-  for (let i = 0; i < keys.length; i++) {
-    const curr = keys[i];
-    let hash;
-    let isFound = false;
-    let count = 1;
+  for (var i = 0; i < keys.length; i++) {
+    var curr = keys[i];
+    var hash = void 0;
+    var isFound = false;
+    var count = 1;
 
     while (!isFound) {
       hash = minifyWord(curr, count);
@@ -96,12 +116,12 @@ const generateDictionary = data => {
  */
 
 
-const minify = (data, dictionary) => {
+var minify = function minify(data, dictionary) {
   if (isObject(data)) {
-    const newData = {};
+    var newData = {};
 
-    for (const key in data) {
-      const curr = data[key];
+    for (var key in data) {
+      var curr = data[key];
 
       if (isObject(curr) || isArray(curr)) {
         newData[dictionary[key]] = minify(curr, dictionary);
@@ -114,20 +134,20 @@ const minify = (data, dictionary) => {
   }
 
   if (isArray(data)) {
-    const newData = [];
+    var _newData = [];
 
-    for (let i = 0; i < data.length; i++) {
-      const curr = data[i];
-      console.log(curr);
+    for (var i = 0; i < data.length; i++) {
+      var _curr2 = data[i];
+      console.log(_curr2);
 
-      if (isObject(curr) || isArray(curr)) {
-        newData[i] = minify(curr, dictionary);
+      if (isObject(_curr2) || isArray(_curr2)) {
+        _newData[i] = minify(_curr2, dictionary);
       } else {
-        newData[i] = curr;
+        _newData[i] = _curr2;
       }
     }
 
-    return newData;
+    return _newData;
   }
 };
 /**
@@ -138,15 +158,15 @@ const minify = (data, dictionary) => {
  */
 
 
-const magnify = (data, dictionary) => {
-  const revertedDictionary = Object.entries(dictionary).reduce((acc, curr) => _objectSpread(_objectSpread({}, acc), {}, {
-    [curr[1]]: curr[0]
-  }), {});
+var magnify = function magnify(data, dictionary) {
+  var revertedDictionary = Object.entries(dictionary).reduce(function (acc, curr) {
+    return _objectSpread(_objectSpread({}, acc), {}, _defineProperty({}, curr[1], curr[0]));
+  }, {});
   return minify(data, revertedDictionary);
 };
 
 module.exports = {
-  generateDictionary,
-  minify,
-  magnify
+  generateDictionary: generateDictionary,
+  minify: minify,
+  magnify: magnify
 };

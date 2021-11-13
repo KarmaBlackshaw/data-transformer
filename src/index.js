@@ -7,17 +7,17 @@ const isObject = hit => !isArray(hit) && typeof hit === 'object'
  * @param {object|array} data - the data to extract keys from
  */
 const extractKeys = data => {
-  const set = []
+  const keys = []
 
   if (isObject(data)) {
     for (const key in data) {
       const curr = data[key]
 
       if (isObject(curr)) {
-        set.push(...extractKeys(curr))
+        keys.push(...extractKeys(curr))
       }
 
-      set.push(key)
+      keys.push(key)
     }
   }
 
@@ -26,7 +26,7 @@ const extractKeys = data => {
       const curr = data[i]
 
       if (isObject(curr)) {
-        set.push(...extractKeys(curr))
+        keys.push(...extractKeys(curr))
       }
     }
   }

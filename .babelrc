@@ -4,7 +4,15 @@
       "@babel/env",
       {
         "targets": {
-          "node": "current"
+          "node": "current",
+          "browsers": [
+            "edge >= 16",
+            "safari >= 9",
+            "firefox >= 57",
+            "ie >= 10",
+            "ios >= 9",
+            "chrome >= 49"
+          ]
         }
       }
     ]

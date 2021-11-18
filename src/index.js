@@ -13,7 +13,7 @@ const extractKeys = data => {
     for (const key in data) {
       const curr = data[key]
 
-      if (isObject(curr)) {
+      if (isObject(curr) || isArray(curr)) {
         keys.push(...extractKeys(curr))
       }
 
@@ -25,7 +25,7 @@ const extractKeys = data => {
     for (let i = 0; i < data.length; i++) {
       const curr = data[i]
 
-      if (isObject(curr)) {
+      if (isObject(curr) || isArray(curr)) {
         keys.push(...extractKeys(curr))
       }
     }

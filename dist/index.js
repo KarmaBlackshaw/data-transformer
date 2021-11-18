@@ -41,7 +41,7 @@ var extractKeys = function extractKeys(data) {
     for (var key in data) {
       var curr = data[key];
 
-      if (isObject(curr)) {
+      if (isObject(curr) || isArray(curr)) {
         keys.push.apply(keys, _toConsumableArray(extractKeys(curr)));
       }
 
@@ -53,7 +53,7 @@ var extractKeys = function extractKeys(data) {
     for (var i = 0; i < data.length; i++) {
       var _curr = data[i];
 
-      if (isObject(_curr)) {
+      if (isObject(_curr) || isArray(_curr)) {
         keys.push.apply(keys, _toConsumableArray(extractKeys(_curr)));
       }
     }

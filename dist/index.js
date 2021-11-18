@@ -59,7 +59,7 @@ var extractKeys = function extractKeys(data) {
     }
   }
 
-  return Array.from(new Set(set));
+  return Array.from(new Set(keys));
 };
 /**
  * Convert word to its  minified version
@@ -138,7 +138,6 @@ var minify = function minify(data, dictionary) {
 
     for (var i = 0; i < data.length; i++) {
       var _curr2 = data[i];
-      console.log(_curr2);
 
       if (isObject(_curr2) || isArray(_curr2)) {
         _newData[i] = minify(_curr2, dictionary);

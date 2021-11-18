@@ -31,7 +31,7 @@ const extractKeys = data => {
     }
   }
 
-  return Array.from(new Set(set))
+  return Array.from(new Set(keys))
 }
 
 /**
@@ -106,8 +106,6 @@ const minify = (data, dictionary) => {
     const newData = []
     for (let i = 0; i < data.length; i++) {
       const curr = data[i]
-
-      console.log(curr)
 
       if (isObject(curr) || isArray(curr)) {
         newData[i] = minify(curr, dictionary)

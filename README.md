@@ -2,6 +2,12 @@
 
 The **Data Transformer** library converts your payload to its minified/magnified form by converting the keys
 
+[![GitHub Karmablackshaw](https://badges.pufler.dev/visits/karmablackshaw/data-transformer)](https://github.com/karmablackshaw) 
+[![GitHub Karmablackshaw](https://img.shields.io/github/last-commit/karmablackshaw/data-transformer?label=Last+Commit)](https://github.com/karmablackshaw) 
+[![GitHub Karmablackshaw](https://img.shields.io/github/commit-activity/m/karmablackshaw/data-transformer?color=orange&label=Average+Commits)](https://github.com/karmablackshaw) 
+[![GitHub Karmablackshaw](https://img.shields.io/github/last-commit/karmablackshaw/data-transformer?label=Last+Commit)](https://github.com/karmablackshaw) 
+
+
 ## Installation
 
 Use the package manager [npm](https://docs.npmjs.com/).

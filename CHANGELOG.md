@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.7](https://github.com/KarmaBlackshaw/data-transformer/compare/1.0.6...1.0.7) - 2023-03-31
+
+### Commits
+
+- chore(release): 1.0.7 [`cf0cef7`](https://github.com/KarmaBlackshaw/data-transformer/commit/cf0cef7cf818abf9eb4af3040dcef8ef54012f57)
+- chore: change to access to public [`59b73da`](https://github.com/KarmaBlackshaw/data-transformer/commit/59b73dab7ff4185968525c201650a6fbad7ba3ce)
+- chore: change package name [`181a048`](https://github.com/KarmaBlackshaw/data-transformer/commit/181a0488c60bc8f833cb4c5828f39379a3610be3)
+
 ## 1.0.6 - 2023-02-03
 
 ### Commits

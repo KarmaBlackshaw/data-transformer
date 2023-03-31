@@ -13,7 +13,7 @@
 Use the package manager [npm](https://docs.npmjs.com/).
 
 ```bash
-npm i @cubic-wing/data-transformer
+npm i @jeash/data-transformer
 ```
 
 ## Usage

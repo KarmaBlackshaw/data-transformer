@@ -21,7 +21,7 @@ npm i @jeash/data-transformer
 ### Generate a dictionary
 
 ```javascript
-const transformer = require("@cubic-wing/data-transformer")
+const transformer = require("@jeash/data-transformer")
 
 const data = {
   very_long_word: 'very_long_word',
@@ -48,7 +48,7 @@ const dictionary = transformer.generateDictionary(data);
 ### Minify Data
 
 ```javascript
-const transformer = require("@cubic-wing/data-transformer")
+const transformer = require("@jeash/data-transformer")
 
 const data = {
   very_long_word: 'very_long_word',
@@ -83,7 +83,7 @@ const minified = transformer.minify(data, dictionary)
 ### Magnify Data
 
 ```javascript
-const transformer = require("@cubic-wing/data-transformer")
+const transformer = require("@jeash/data-transformer")
 
 const data = {
   vlw: 'very_long_word',

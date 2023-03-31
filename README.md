@@ -1,6 +1,6 @@
 # Data Transformer
 
-The **Data Transformer** library converts your payload to its minified/magnified form by converting the keys
+*Data Transformer* is a powerful tool that allows you to quickly and easily minify and magnify your data by converting the keys. With this library, you can reduce the size of your payloads and optimize your code for faster performance.
 
 [![GitHub Karmablackshaw](https://badges.pufler.dev/visits/karmablackshaw/data-transformer)](https://github.com/karmablackshaw) 
 [![GitHub Karmablackshaw](https://img.shields.io/github/last-commit/karmablackshaw/data-transformer?label=Last+Commit)](https://github.com/karmablackshaw) 

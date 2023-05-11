@@ -103,7 +103,7 @@ const dictionary = {
   object_array_foo: 'oaf'
 }
 
-const magnified= transformer.minify(data, dictionary)
+const magnified = transformer.magnify(data, dictionary)
 
 // This will return the following
 {
